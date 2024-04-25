@@ -20,7 +20,7 @@ export default function PaymentReact() {
             amount: 10000,
             redirectUrl: `http://localhost:3000/payment/status/${merchantTransactionId}`,
             redirectMode: "REDIRECT",
-            callbackUrl: `https://a9aa-202-131-123-10.ngrok-free.app/api/status/${merchantTransactionId}`,
+            callbackUrl: `https://dd35-202-131-123-10.ngrok-free.app/api/status/${merchantTransactionId}`,
             mobileNumber: '9999999999',
             paymentInstrument: {
                 type: "PAY_PAGE",

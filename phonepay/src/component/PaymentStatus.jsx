@@ -9,10 +9,10 @@ const PaymentStatus = () => {
     console.log(tnxId);
 
     useEffect(() => {
-        const URL = "https://a9aa-202-131-123-10.ngrok-free.app/api/status/" + tnxId;
+        const URL = "http://localhost:8080/api/status/" + tnxId;
 
         const options = {
-            method: 'POST',
+            method: 'GET',
             url: URL,
             headers: {
                 accept: 'application/json',
@@ -23,7 +23,10 @@ const PaymentStatus = () => {
         axios.request(options).then(function (response) {
             if(response.status === 200 && response.data.success && response.data.code === "PAYMENT_SUCCESS"){
                 navigate("/success")
-            }else{
+            }else if(response.status === 200 && response.data.success && response.data.code === "PAYMENT_PENDING"){
+                
+            }
+            else{
                 navigate("/failed")
             }
         }).catch(function (error) {
